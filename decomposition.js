@@ -1,4 +1,5 @@
 function decomposition(num) {
+    var tempnum = num;
     primefactors = [];//质因数
     var n = 0;
     while (num >= n) {
@@ -13,25 +14,25 @@ function decomposition(num) {
             n++;
         }
     }
-    return primefactors.join("");
+    return tempnum+"="+primefactors.join("");
 }
 
-function isPrime(number) {
-    if (number < 2) {
+function isPrime(num) {
+    if (num < 2) {
         return false
     }
-//2是素数，被2整除的都不是素数
-    if (number === 2) {
+    if (num === 2) {
         return true
-    } else if (number % 2 === 0) {
+    } else if (num % 2 === 0) {
         return false;
     }
-//依次判断是否能被奇数整除，最大循环为数值的开方
-    var squareRoot = Math.sqrt(number);
-    for (var i = 3; i <= squareRoot; i += 2) {
-        if (number % i === 0) {
+    var max = Math.sqrt(num);
+    for (var i = 3; i <= max; i += 2) {
+        if (num % i === 0) {
             return false;
         }
     }
     return true;
 }
+
+console.log(decomposition(90));
