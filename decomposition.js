@@ -9,7 +9,6 @@ function decomposition(num) {
     var n = 0;
     while (num >= n) {
         if (n === num) {
-
             primeFactors.push(n);
             break;
         }
